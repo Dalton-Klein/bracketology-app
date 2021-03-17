@@ -1,10 +1,19 @@
-const fs = require('fs');
+require('dotenv').config();
 const path = require('path');
+const fs = require('fs');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('gamerbotdb', 'dalton', 'codeWorks$', {
-  host: '127.0.0.1',
-  port: '3308',
-  dialect: 'mysql',
+const PORT = process.env.DB_PORT;
+const DBNAME = process.env.DB_TITLE;
+const USER = process.env.DB_USER;
+const PASSWORD = process.env.DB_PASSWORD;
+const HOST = process.env.DB_HOST;
+const sequelize = new Sequelize({
+  database: DBNAME,
+  username: USER,
+  password: PASSWORD,
+  host: HOST,
+  port: PORT,
+  dialect: 'postgres',
 });
 const db = {};
 fs

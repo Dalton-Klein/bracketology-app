@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import './app/config';
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: $colorGreyBg;
+  color: $colorText;
+  font-family: 'Rubik', sans-serif;
+}

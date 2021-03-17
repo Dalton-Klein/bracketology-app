@@ -1,0 +1,29 @@
+@import '../config';
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color:$colorSecondary;
+  color: white;
+  font-size: calc(10px + .5vw);
+  font-weight: 600;
+}
+
+.toolbar img {
+  margin-left: 16px;
+  margin-right: 10px;
+}
+
+.toolbar-link {
+  font-size: calc(8px + .5vw);
+  font-weight: 300;
+}
+
+.spacer {
+  width: 25px;
+}

@@ -1,14 +1,27 @@
-const { WZStatsEntry, Registrations } = require('../models/index');
+const { BracketMaster, BracketEntry } = require('../models/index');
 
-async function newRegistration (req, res) {
+async function newBracket (req, res) {
   try {
-    console.log('WE GOT TO THE POST CONTROLLER');
-    const registration = await Registrations.create({
-      username: req.body.username,
-      wz_platform: req.body.wz_platform,
-      wz_handle: req.body.wz_handle
+    console.log('WE GOT TO THE CONTROLLER');
+    const entry = await BracketMaster.create({
+      bracketname: req.body.bracketname,
+      picks: req.body.picks
     });
-    res.send(registration);
+    res.send(entry);
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+}
+
+async function newEntry (req, res) {
+  try {
+    console.log('WE GOT TO THE CONTROLLER');
+    const entry = await BracketEntry.create({
+      username: req.body.username,
+      picks: req.body.picks
+    });
+    res.send(entry);
   } catch (error) {
     console.error(error);
     res.sendStatus(500);
@@ -44,4 +57,4 @@ async function storeWZStats (req, res) {
 }
 
 
-module.exports = {newRegistration, storeWZStats};
+module.exports = { newBracket, newEntry, storeWZStats};
