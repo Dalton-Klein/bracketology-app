@@ -1,7 +1,35 @@
+@import '../config';
+
+.master {
+  width: 100%;
+  margin-top: 8vh;
+}
+
+.entrants {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: calc( 14px + 1.25vw);
+}
+
+.submit__btn {
+  background-color: $colorTertiary;
+  width: 30%;
+  margin: 1vh 1vw;
+  margin-bottom: 3vh;
+  transition: 200ms;
+}
+
+.submit__btn:hover {
+  background-color: $colorPrimary;
+}
+
 main{
   display:flex;
   flex-direction:row;
-  margin-top: 8vh;
 }
 
 .bracket-title {
@@ -11,7 +39,7 @@ main{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  width:200px;
+  width:16vw;
   list-style:none;
   padding:0;
 }
@@ -27,14 +55,14 @@ main{
  *  General Styles
 */
 body{
-  font-family:sans-serif;
-  font-size:small;
   padding:10px;
   line-height:1.4em;
 }
 
 li.game{
   padding-left:20px;
+  font-size: calc( 7px + .35vw);
+  max-height: 8vh;
 }
 
   li.game.winner{
@@ -50,6 +78,23 @@ li.game{
   li.game-spacer{ 
     border-right:1px solid #aaa;
     min-height:40px;
+  }
+
+  li.game-spacer2{ 
+    border-right:1px solid #aaa;
+    min-height:90px;
+  }
+  li.game-spacer3{ 
+    border-right:1px solid #aaa;
+    min-height:200px;
+  }
+  li.game-spacer4{ 
+    border-right:1px solid #aaa;
+    min-height:375px;
+  }
+  li.game-spacer5{ 
+    border-right:1px solid #aaa;
+    min-height:750px;
   }
 
   li.game-bottom{ 

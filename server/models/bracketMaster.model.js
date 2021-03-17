@@ -10,10 +10,14 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 0,
       allowNull: false,
     },
-    picks: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+    participants: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
       defaultValue: [],
     },
+    scores: {
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      defaultValue: [],
+    }
 
   });
   return BracketMaster;

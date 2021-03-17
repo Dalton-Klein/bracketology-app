@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT = 3010;
 const router = require('./router');
 router.use(express.json());
 const db = require('./models/index');
 const http = require('http').createServer(app);
-app.use(router);
+app.use(cors(), router);
 
 (async () => {
   try {

@@ -1,12 +1,18 @@
 <div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="assets/bracketologyIcon.png"
-  />
-  <span>Bracketology</span>
+  <a [routerLink]="['/']">
+    <img
+      width="40"
+      alt="Angular Logo"
+      src="assets/bracketologyIcon.png"
+    />
+  </a>
+  <a [routerLink]="['/']">
+    <span>Bracketology</span>
+  </a>
   <div class="spacer"></div>
   <div class="spacer"></div>
-  <div class="toolbar-link">2021 NCAA Wrestling</div>
+  <a [routerLink]="['/2021-NCAA-Wrestling']">
+    <div class="toolbar-link">2021 NCAA Wrestling</div>
+  </a>
     
 </div>

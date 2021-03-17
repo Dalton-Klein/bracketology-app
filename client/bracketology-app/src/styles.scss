@@ -12,3 +12,20 @@ body {
   color: $colorText;
   font-family: 'Rubik', sans-serif;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: $colorPrimary;
+  font-weight: 500;
+  padding: 1em;
+  transition: 125ms;
+  font-size: calc(8px + 0.5vw);
+}

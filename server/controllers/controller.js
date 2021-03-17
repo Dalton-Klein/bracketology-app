@@ -5,7 +5,8 @@ async function newBracket (req, res) {
     console.log('WE GOT TO THE CONTROLLER');
     const entry = await BracketMaster.create({
       bracketname: req.body.bracketname,
-      picks: req.body.picks
+      numMatches: req.body.numMatches,
+      participants: req.body.participants
     });
     res.send(entry);
   } catch (error) {
@@ -13,6 +14,38 @@ async function newBracket (req, res) {
     res.sendStatus(500);
   }
 }
+
+const editBracket = async (req, res) => {
+  try {
+    console.log('Someone Updated Bracket!');
+    const { id } = req.params;
+    const { scores } = req.body;
+    const filter = { where: { id: id } };
+    const reply = await BracketMaster.findOne(filter);
+    if (reply) {
+      reply.update({
+        scores
+      })
+    }
+    res.status(200).send(reply);
+  } catch (err) {
+    console.log('FETCH ERROR', err);
+    res.status(500).send('FETCH ERROR');
+  }
+};
+
+const fetchBracket = async (req, res) => {
+  try {
+    console.log('Someone Requested Master Bracket!');
+    const { id } = req.params;
+    const filter = { where: { id: id } };
+    const reply = await BracketMaster.findOne(filter);
+    res.status(200).send(reply);
+  } catch (err) {
+    console.log('FETCH ERROR', err);
+    res.status(500).send('FETCH ERROR');
+  }
+};
 
 async function newEntry (req, res) {
   try {
@@ -57,4 +90,4 @@ async function storeWZStats (req, res) {
 }
 
 
-module.exports = { newBracket, newEntry, storeWZStats};
+module.exports = { newBracket, editBracket, fetchBracket, newEntry, storeWZStats};
