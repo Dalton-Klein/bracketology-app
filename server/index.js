@@ -8,6 +8,9 @@ const db = require('./models/index');
 const http = require('http').createServer(app);
 app.use(cors(), router);
 
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname+'dist/bracketology-app/index.html'))
+})
 (async () => {
   try {
     // await db.sequelize.sync({ force: true });
