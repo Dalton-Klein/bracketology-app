@@ -3,14 +3,16 @@ const app = express();
 const cors = require('cors');
 const PORT = 3010;
 const router = require('./router');
-router.use(express.json());
 const db = require('./models/index');
 const http = require('http').createServer(app);
+router.use(express.json());
 app.use(cors(), router);
 
+app.use(express.static(__dirname + '/client/bracketology-app/dist/bracketology-app'))
 app.get('/*', function(req,res) {
-  res.sendFile(path.join(__dirname+'dist/bracketology-app/index.html'))
-})
+  res.sendFile(path.join(__dirname+'/client/bracketology-app/dist/bracketology-app/index.html'));
+});
+
 (async () => {
   try {
     // await db.sequelize.sync({ force: true });
