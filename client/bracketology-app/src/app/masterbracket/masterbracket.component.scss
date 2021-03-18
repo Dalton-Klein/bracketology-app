@@ -9,6 +9,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  a {
+    width: 30%;
+  }
 }
 
 .title {
@@ -17,7 +20,7 @@
 
 .submit__btn {
   background-color: $colorTertiary;
-  width: 30%;
+  width: 100%;
   margin: 1vh 1vw;
   margin-bottom: 3vh;
   transition: 200ms;
@@ -27,12 +30,36 @@
   background-color: $colorPrimary;
 }
 
+.entries-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.entry-card {
+  width: 12vw;
+  height: 3vw;
+  background-color: $colorPrimary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin: 1vh 1vw;
+}
+
+.entry-card-text {
+  color: white;
+  font-size: calc(10px + .5vw);
+}
+
 main{
   display:flex;
   flex-direction:row;
 }
 
 .bracket-title {
+  margin-left: 1vw;
   font-size: calc( 12px + .8vw);
 }
 .round{

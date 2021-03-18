@@ -6,6 +6,6 @@ router.post('/bracket', controller.newBracket);
 router.put('/bracket/:id', controller.editBracket);
 router.get('/bracket/:id', controller.fetchBracket);
 router.post('/entry', controller.newEntry);
-router.post('/updateResult', controller.storeWZStats);
+router.get('/entry', controller.fetchEntries);
 
 module.exports = router;

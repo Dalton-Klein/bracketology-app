@@ -1,0 +1,267 @@
+<app-navbar></app-navbar>
+<div class="master">
+  <div class="title"> Create Bracket</div>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" novalidate>
+    <div class="center-me">
+      <mat-form-field class="textinput" appearance="fill">
+        <mat-label>Your Name</mat-label>
+        <input matInput name="username" ngModel>
+      </mat-form-field>
+    </div>
+    <div class="formbox">
+      <div class="column">
+        <div class="sub-title"> Prelim </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Prelim Pick</mat-label>
+          <mat-select class="selector" name="prelim" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- ROUND CHANGE -->
+        <div class="sub-title"> Round 1 </div>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 1 Pick</mat-label>
+          <mat-select class="selector" name="m1" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 2 Pick</mat-label>
+          <mat-select class="selector" name="m2" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 3 Pick</mat-label>
+          <mat-select class="selector" name="m3" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 4 Pick</mat-label>
+          <mat-select class="selector" name="m4" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 5 Pick</mat-label>
+          <mat-select class="selector" name="m5" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 6 Pick</mat-label>
+          <mat-select class="selector" name="m6" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 7 Pick</mat-label>
+          <mat-select class="selector" name="m7" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 8 Pick</mat-label>
+          <mat-select class="selector" name="m8" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 9 Pick</mat-label>
+          <mat-select class="selector" name="m9" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 10 Pick</mat-label>
+          <mat-select class="selector" name="m10" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 11 Pick</mat-label>
+          <mat-select class="selector" name="m11" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 12 Pick</mat-label>
+          <mat-select class="selector" name="m12" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 13 Pick</mat-label>
+          <mat-select class="selector" name="m13" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 14 Pick</mat-label>
+          <mat-select class="selector" name="m14" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 15 Pick</mat-label>
+          <mat-select class="selector" name="m15" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R1 Match 16 Pick</mat-label>
+          <mat-select class="selector" name="m16" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <!-- ROUND CHANGE -->
+        <div class="sub-title"> Round 2 </div>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 1 Pick</mat-label>
+          <mat-select class="selector" name="m17" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 2 Pick</mat-label>
+          <mat-select class="selector" name="m18" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 3 Pick</mat-label>
+          <mat-select class="selector" name="m19" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 4 Pick</mat-label>
+          <mat-select class="selector" name="m20" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field> 
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 5 Pick</mat-label>
+          <mat-select class="selector" name="m21" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 6 Pick</mat-label>
+          <mat-select class="selector" name="m22" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 7 Pick</mat-label>
+          <mat-select class="selector" name="m23" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R2 Match 8 Pick</mat-label>
+          <mat-select class="selector" name="m24" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- ROUND CHANGE -->
+        <div class="sub-title"> Quarter Final </div>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R3 Match 1 Pick</mat-label>
+          <mat-select class="selector" name="m25" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R3 Match 2 Pick</mat-label>
+          <mat-select class="selector" name="m26" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R3 Match 3 Pick</mat-label>
+          <mat-select class="selector" name="m27" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R3 Match 4 Pick</mat-label>
+          <mat-select class="selector" name="m28" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- ROUND CHANGE -->
+        <div class="sub-title"> Semi-Final </div>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R4 Match 1 Pick</mat-label>
+          <mat-select class="selector" name="m29" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R4 Match 2 Pick</mat-label>
+          <mat-select class="selector" name="m30" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- ROUND CHANGE -->
+        <div class="sub-title"> Champion </div>
+        <!-- Pick -->
+        <mat-form-field appearance="fill">
+          <mat-label>R5 Match 1 Pick</mat-label>
+          <mat-select class="selector" name="m31" ngModel>
+            <mat-option *ngFor="let participant of participants" [value]="participant.value">{{participant.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <button class="submit__btn"> Cancel </button>
+      <button class="submit__btn" type="submit"> Submit </button>
+    </div>
+  </form>
+  <div [ngClass]="{
+    'error-text' : errorText !== 'Submitting...',
+    'success-text' : errorText == 'Submitting...'
+    }"
+  >
+    {{errorText}}
+  </div>
+</div>
+
+
+
+

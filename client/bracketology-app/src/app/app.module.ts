@@ -9,6 +9,13 @@ import { MasterbracketComponent } from './masterbracket/masterbracket.component'
 import { TournamentComponent } from './tournament/tournament.component';
 import { HomeComponent } from './home/home.component';
 import { HomecardComponent } from './homecard/homecard.component';
+import { BracketformComponent } from './bracketform/bracketform.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule }   from '@angular/forms';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -17,12 +24,19 @@ import { HomecardComponent } from './homecard/homecard.component';
     MasterbracketComponent,
     TournamentComponent,
     HomeComponent,
-    HomecardComponent
+    HomecardComponent,
+    BracketformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule,
+
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

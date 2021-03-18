@@ -1,8 +1,22 @@
 <div class="master">
   <div class="entrants">
     <div class="title">2021 NCAA DIVISION I WRESTLING CHAMPIONSHIPS</div>
-    <button class="submit__btn">Create Bracket</button>
+    <a [routerLink]="['/create']">
+      <button class="submit__btn">Create Bracket</button>
+    </a>
   </div>
+  
+  <!-- ENTRIES -->
+  <div class="bracket-title">Entries</div>
+  <div class="entries-container">
+    <div class="entry-card">
+      <div class="entry-card-text">MASTER</div>
+    </div>
+    <div *ngFor="let entry of entries" class="entry-card">
+      <div class="entry-card-text">{{entry.username}}</div>
+    </div>
+  </div>
+
   <!-- PRELIM -->
   <main id="tournament">
     <ul class="round round-1">

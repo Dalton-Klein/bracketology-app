@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Bracket } from '../interfaces';
 import { BracketStoreService } from '../bracket-store.service';
+import { ApiClientService } from '../api-client.service';
 
 @Component({
   selector: 'app-masterbracket',
@@ -209,9 +210,11 @@ export class MasterbracketComponent implements OnInit {
   participant65:string = 'blank'
   score65:number = 0
 
+  entries:any= []
 
   // constructor( ) { }
-  constructor(private store: BracketStoreService ) { }
+  constructor(private store: BracketStoreService, private apiClient: ApiClientService ) { }
+
 
   ngOnInit(): void {
     this.storeSubscription = this.store.current$
@@ -219,9 +222,19 @@ export class MasterbracketComponent implements OnInit {
       this.bracket = data;
       this.setBracketData()
     });
-    console.log('What is the store: ', this.bracket)
+    console.log('What is the store: ', this.bracket);
     this.store.fetchBracket(1);
-    
+    this.simpleAwait();
+  }
+
+  simpleAwait = async () => {
+    console.log('Before');
+    this.entries = await this.getEntries();
+    console.log('Getting Entries: ', this.entries )
+  }
+
+   getEntries = async () => {
+    return await this.apiClient.fetchEntries();
   }
 
   setBracketData = () => {

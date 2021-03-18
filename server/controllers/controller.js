@@ -49,10 +49,19 @@ const fetchBracket = async (req, res) => {
 
 async function newEntry (req, res) {
   try {
-    console.log('WE GOT TO THE CONTROLLER');
+    console.log('WE GOT TO THE CONTROLLER', req.body);
+    const { prelim, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10,
+      m11, m12, m13, m14, m15, m16, m17, m18, m19, m20,
+      m21, m22, m23, m24, m25, m26, m27, m28, m29, m30, m31
+    } = req.body
     const entry = await BracketEntry.create({
       username: req.body.username,
-      picks: req.body.picks
+      masterId: 1,
+      picks: [
+        prelim, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10,
+        m11, m12, m13, m14, m15, m16, m17, m18, m19, m20,
+        m21, m22, m23, m24, m25, m26, m27, m28, m29, m30, m31
+      ]
     });
     res.send(entry);
   } catch (error) {
@@ -61,33 +70,16 @@ async function newEntry (req, res) {
   }
 }
 
-async function storeWZStats (req, res) {
-  //console.log('what is the express req: ', req);
+const fetchEntries = async (req, res) => {
   try {
-    console.log('WE GOT TO THE POST CONTROLLER');
-    const wzStatsEntry = await WZStatsEntry.create({
-      user: req.body.user,
-      wins: req.body.br.wins,
-      kills: req.body.br.kills,
-      kdRatio: req.body.br.kdRatio,
-      downs: req.body.br.downs,
-      topTwentyFive: req.body.br.topTwentyFive,
-      topTen: req.body.br.topTen,
-      contracts: req.body.br.contracts,
-      revives: req.body.br.revives,
-      topFive: req.body.br.topFive,
-      score: req.body.br.score,
-      timePlayed: req.body.br.timePlayed,
-      gamesPlayed: req.body.br.gamesPlayed,
-      scorePerMinute: req.body.br.scorePerMinute,
-      deaths: req.body.br.deaths
-    });
-    res.send(wzStatsEntry);
-  } catch (error) {
-    console.error(error);
-    res.sendStatus(500);
+    console.log('Someone Requested Entries!');
+    const reply = await BracketEntry.findAll();
+    res.status(200).send(reply);
+  } catch (err) {
+    console.log('FETCH ERROR', err);
+    res.status(500).send('FETCH ERROR');
   }
-}
+};
 
 
-module.exports = { newBracket, editBracket, fetchBracket, newEntry, storeWZStats};
+module.exports = { newBracket, editBracket, fetchBracket, newEntry, fetchEntries};

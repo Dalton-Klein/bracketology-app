@@ -5,12 +5,12 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false,
     },
-    masterID: {
+    masterId: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     picks: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.ARRAY(DataTypes.STRING),
       defaultValue: [],
       allowNull: false,
     },
