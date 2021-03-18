@@ -10,8 +10,8 @@ import { Bracket } from './interfaces';
 })
 
 export class ApiClientService {
-  // private fetchOrigURL: String = 'https://trademon.herokuapp.com/'
-  private fetchOrigURL: string = 'http://localhost:3010/';
+  private fetchOrigURL: String = 'https://bracketologie.herokuapp.com/'
+  // private fetchOrigURL: string = 'http://localhost:3010/';
 
   constructor(private http: HttpClient) { }
 
