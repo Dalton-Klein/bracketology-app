@@ -7,7 +7,7 @@ const db = require('./models/index');
 const http = require('http').createServer(app);
 router.use(express.json());
 app.use(cors(), router);
-
+//yay
 app.use(express.static(__dirname + '/client/bracketology-app/dist/bracketology-app'))
 app.get('/*', function(req,res) {
   res.sendFile(path.join(__dirname+'/client/bracketology-app/dist/bracketology-app/index.html'));
