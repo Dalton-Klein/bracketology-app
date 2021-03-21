@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../api-client.service';
+import { ActivatedRoute } from '@angular/router';
 
 import { participants } from '../interfaces';
-
+//
 @Component({
   selector: 'app-bracketform',
   templateUrl: './bracketform.component.html',
@@ -12,13 +13,24 @@ export class BracketformComponent implements OnInit {
 
   errorText: string = ''
 
-  constructor(private apiClient: ApiClientService) { }
+  constructor(private apiClient: ApiClientService, private route: ActivatedRoute) { }
   
   participants = participants;
   ngOnInit(): void {
   }
 
   async onSubmit(formData) {
+    if (this.route.snapshot.paramMap.get('weight') == '125') formData.masterId = 1;
+    else if (this.route.snapshot.paramMap.get('weight') == '133') formData.masterId = 2;
+    else if (this.route.snapshot.paramMap.get('weight') == '141') formData.masterId = 3;
+    else if (this.route.snapshot.paramMap.get('weight') == '149') formData.masterId = 4;
+    else if (this.route.snapshot.paramMap.get('weight') == '157') formData.masterId = 5;
+    else if (this.route.snapshot.paramMap.get('weight') == '165') formData.masterId = 6;
+    else if (this.route.snapshot.paramMap.get('weight') == '174') formData.masterId = 7;
+    else if (this.route.snapshot.paramMap.get('weight') == '184') formData.masterId = 8;
+    else if (this.route.snapshot.paramMap.get('weight') == '197') formData.masterId = 9;
+    else if (this.route.snapshot.paramMap.get('weight') == '285') formData.masterId = 10;
+    
     console.log('FormSubmitted: ', formData)
     if (formData.username !== '' && formData.prelim !== '' && formData.m1 !== '' && formData.m2 !== '' && formData.m3 !== '' && formData.m4 !== '' && formData.m5 !== '' 
       && formData.m6 !== '' && formData.m7 !== '' && formData.m8 !== '' && formData.m9 !== '' && formData.m10 !== '' 

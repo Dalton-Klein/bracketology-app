@@ -10,11 +10,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: '2021-NCAA-Wrestling',
+    path: '2021-NCAA-Wrestling/:weight',
     component: TournamentComponent
   },
   {
-    path: 'create',
+    path: 'create/:weight',
     component: BracketformComponent
   }
 

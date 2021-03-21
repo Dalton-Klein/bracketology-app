@@ -16,6 +16,9 @@ import { FormsModule }   from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { NcaawrestlingComponent } from './ncaawrestling/ncaawrestling.component';
+import { Masterbracket133Component } from './masterbracket133/masterbracket133.component';
+import { Masterbracket141Component } from './masterbracket141/masterbracket141.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { MatSelectModule } from '@angular/material/select';
     TournamentComponent,
     HomeComponent,
     HomecardComponent,
-    BracketformComponent
+    BracketformComponent,
+    NcaawrestlingComponent,
+    Masterbracket133Component,
+    Masterbracket141Component
   ],
   imports: [
     BrowserModule,

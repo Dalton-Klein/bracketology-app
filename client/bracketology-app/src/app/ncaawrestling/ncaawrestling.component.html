@@ -1,0 +1,17 @@
+<div class="master">
+  <div class="entrants">
+  <div class="title">2021 NCAA DIVISION I WRESTLING CHAMPIONSHIPS</div>
+  <div class="entries-container">
+    <div *ngFor="let item of weightClasses" (click)="setWeight(item)">
+      <a [routerLink]="['/2021-NCAA-Wrestling/'+item]" class="entry-card">
+        <div class="entry-card-text">{{item}} LB</div>
+      </a>
+
+    </div>
+
+  </div>
+  <app-masterbracket *ngIf="weight == '125'"></app-masterbracket>
+  <app-masterbracket133 *ngIf="weight == '133'"></app-masterbracket133>
+  <app-masterbracket141 *ngIf="weight == '141'"></app-masterbracket141>
+
+</div>

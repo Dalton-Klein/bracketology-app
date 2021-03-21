@@ -10,8 +10,8 @@ import { Bracket } from './interfaces';
 })
 
 export class ApiClientService {
-  private fetchOrigURL: String = 'https://bracketologie.herokuapp.com/'
-  // private fetchOrigURL: string = 'http://localhost:3010/';
+  // private fetchOrigURL: String = 'https://bracketologie.herokuapp.com/'
+  private fetchOrigURL: string = 'http://localhost:3010/';
 
   constructor(private http: HttpClient) { }
 
@@ -23,13 +23,11 @@ export class ApiClientService {
 
   async postEntry(entry) {
     return this.http.post(`${this.fetchOrigURL}entry`, entry).toPromise().then(data => {
-      console.log('Post Return Data: ', data)
     })
   }
 
   async fetchEntries() {
     return this.http.get(`${this.fetchOrigURL}entry`).toPromise().then(data => {
-      console.log('Get Entries Return Data: ', data)
       return data;
     })
   }

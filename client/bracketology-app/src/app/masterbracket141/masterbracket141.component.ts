@@ -5,11 +5,11 @@ import { BracketStoreService } from '../bracket-store.service';
 import { ApiClientService } from '../api-client.service';
 
 @Component({
-  selector: 'app-masterbracket',
-  templateUrl: './masterbracket.component.html',
-  styleUrls: ['./masterbracket.component.scss']
+  selector: 'app-masterbracket141',
+  templateUrl: './masterbracket141.component.html',
+  styleUrls: ['./masterbracket141.component.scss']
 })
-export class MasterbracketComponent implements OnInit {
+export class Masterbracket141Component implements OnInit {
 
   storeSubscription!: Subscription;
   bracket: Bracket;
@@ -230,9 +230,10 @@ export class MasterbracketComponent implements OnInit {
     this.entries = await this.getEntries();
     let filteredEntries;
     this.entries.forEach(entry => {
-      if (entry.masterId == 2) filteredEntries.push(entry);
+      if (entry.masterId == 3) filteredEntries.push(entry);
     });
-    this.store.fetchBracket(1);
+    this.entries = filteredEntries;
+    this.store.fetchBracket(3);
   }
 
   getEntries = async () => {
@@ -241,230 +242,100 @@ export class MasterbracketComponent implements OnInit {
 
   setScores = () => {
     let entrant = 0
-    this.entries.forEach(entry => {
-      this.scores.push(0);
-      let index = 0
-      entry.picks.forEach(pick => {
-        console.log(entrant, '  ComparingPicks', pick, ' to master ', this.bracket.participants[index+33])
-        if(pick === this.bracket.participants[index+33]) {
-          let pointsToAdd = 0
-          if (index < 17) {pointsToAdd = 1}
-          else if (index < 25) {pointsToAdd = 2}
-          else if (index < 29) {pointsToAdd = 6}
-          else if (index < 31) {pointsToAdd = 8}
-          else {pointsToAdd = 10}
-          this.scores[entrant] = this.scores[index]+pointsToAdd;
-          console.log('Increasing Score!!', this.scores)
-        }
-        index++;
+    if (this.entries) {
+      this.entries.forEach(entry => {
+        this.scores.push(0);
+        let index = 0
+        entry.picks.forEach(pick => {
+          console.log(entrant, '  ComparingPicks', pick, ' to master ', this.bracket.participants[index+33])
+          if(pick === this.bracket.participants[index+33]) {
+            let pointsToAdd = 0
+            if (index < 17) {pointsToAdd = 1}
+            else if (index < 25) {pointsToAdd = 2}
+            else if (index < 29) {pointsToAdd = 6}
+            else if (index < 31) {pointsToAdd = 8}
+            else {pointsToAdd = 10}
+            this.scores[entrant] = this.scores[index]+pointsToAdd;
+            console.log('Increasing Score!!', this.scores)
+          }
+          index++;
+        });
+        entrant++;
       });
-      entrant++;
-    });
+    }
   }
 
   setBracketData = () => {
-    this.slot1= '1'
     this.participant1= this.bracket.participants[0];
     this.score1= this.bracket.scores[0];
-    this.slot2= '?'
-    this.participant2= (this.bracket.participants[34] ? this.bracket.participants[34] : '');
-    this.score2= (this.bracket.scores[34] ? this.bracket.scores[34] : 0);
-    this.slot3= '17'
-    this.participant3= this.bracket.participants[16];
-    this.score3= this.bracket.scores[16];
-    this.slot4= '16'
-    this.participant4= this.bracket.participants[15];
-    this.score4= this.bracket.scores[15];
-    this.slot5= '9'
-    this.participant5= this.bracket.participants[8];
-    this.score5= this.bracket.scores[8];
-    this.slot6= '24'
-    this.participant6= this.bracket.participants[23];
-    this.score6= this.bracket.scores[23];
-    this.slot7= '25'
-    this.participant7= this.bracket.participants[24];
-    this.score7= this.bracket.scores[24];
-    this.slot8= '8'
+    this.participant2= (this.bracket.participants[1] ? this.bracket.participants[1] : '');
+    this.score2= (this.bracket.scores[1] ? this.bracket.scores[1] : 0);
+    this.participant3= this.bracket.participants[2];
+    this.participant4= this.bracket.participants[3];
+    this.participant5= this.bracket.participants[4];
+    this.participant6= this.bracket.participants[5];
+    this.participant7= this.bracket.participants[6];
     this.participant8= this.bracket.participants[7];
-    this.score8= this.bracket.scores[4];
-    this.slot9= '5'
-    this.participant9= this.bracket.participants[4];
-    this.score9= this.bracket.scores[4];
-    this.slot10= '28'
-    this.participant10= this.bracket.participants[27];
-    this.score10= this.bracket.scores[27];
-    this.slot11= '21'
-    this.participant11= this.bracket.participants[20];
-    this.score11= this.bracket.scores[20];
-    this.slot12= '12'
+    this.participant9= this.bracket.participants[8];
+    this.participant10= this.bracket.participants[9];
+    this.participant11= this.bracket.participants[10];
     this.participant12= this.bracket.participants[11];
-    this.score12= this.bracket.scores[11];
-    this.slot13= '13'
     this.participant13= this.bracket.participants[12];
-    this.score13= this.bracket.scores[12];
-    this.slot14= '20'
-    this.participant14= this.bracket.participants[19];
-    this.score14= this.bracket.scores[19];
-    this.slot15= '29'
-    this.participant15= this.bracket.participants[28];
-    this.score15= this.bracket.scores[28];
-    this.slot16= '4'
-    this.participant16= this.bracket.participants[3];
-    this.score16= this.bracket.scores[3];
-    this.slot17= '3'
-    this.participant17= this.bracket.participants[2];
-    this.score17= this.bracket.scores[2];
-    this.slot18= '30'
-    this.participant18= this.bracket.participants[29];
-    this.score18= this.bracket.scores[29];
-    this.slot19= '19'
+    this.participant14= this.bracket.participants[13];
+    this.participant15= this.bracket.participants[14];
+    this.participant16= this.bracket.participants[15];
+    this.participant17= this.bracket.participants[16];
+    this.participant18= this.bracket.participants[17];
     this.participant19= this.bracket.participants[18];
-    this.score19= this.bracket.scores[18];
-    this.slot20= '14'
-    this.participant20= this.bracket.participants[13];
-    this.score20= this.bracket.scores[13];
-    this.slot21= '11'
-    this.participant21= this.bracket.participants[10];
-    this.score21= this.bracket.scores[10];
-    this.slot22= '22'
+    this.participant20= this.bracket.participants[19];
+    this.participant21= this.bracket.participants[20];
     this.participant22= this.bracket.participants[21];
-    this.score22= this.bracket.scores[21];
-    this.slot23= '27'
-    this.participant23= this.bracket.participants[26];
-    this.score23= this.bracket.scores[26];
-    this.slot24= '6'
-    this.participant24= this.bracket.participants[5];
-    this.score24= this.bracket.scores[5];
-    this.slot25= '7'
-    this.participant25= this.bracket.participants[6];
-    this.score25= this.bracket.scores[6];
-    this.slot26= '26'
+    this.participant23= this.bracket.participants[22];
+    this.participant24= this.bracket.participants[23];
+    this.participant25= this.bracket.participants[24];
     this.participant26= this.bracket.participants[25];
-    this.score26= this.bracket.scores[25];
-    this.slot27= '23'
-    this.participant27= this.bracket.participants[22];
-    this.score27= this.bracket.scores[22];
-    this.slot28= '10'
-    this.participant28= this.bracket.participants[9];
-    this.score28= this.bracket.scores[9];
-    this.slot29= '15'
-    this.participant29= this.bracket.participants[3];
-    this.score29= this.bracket.scores[3];
-    this.slot30= '18'
-    this.participant30= this.bracket.participants[17];
-    this.score30= this.bracket.scores[17];
-    this.slot31= '31'
+    this.participant27= this.bracket.participants[26];
+    this.participant28= this.bracket.participants[27];
+    this.participant29= this.bracket.participants[28];
+    this.participant30= this.bracket.participants[29];
     this.participant31= this.bracket.participants[30];
-    this.score31= this.bracket.scores[30];
-    this.slot32= '2'
-    this.participant32= this.bracket.participants[1];
-    this.score32= this.bracket.scores[1];
-    //Prelims
-    this.slot33= '33'
-    this.participant33= this.bracket.participants[32];
-    this.score33= this.bracket.scores[32];
-    this.slot34= '32'
-    this.participant34= this.bracket.participants[31];
-    this.score34= this.bracket.scores[31];
+    this.participant32= this.bracket.participants[31];
     //Round2
-    this.slot35= '?'
+    this.participant33= (this.bracket.participants[32] ? this.bracket.participants[32] : '');
+    this.participant34= (this.bracket.participants[33] ? this.bracket.participants[33] : '');
     this.participant35= (this.bracket.participants[34] ? this.bracket.participants[34] : '');
-    this.score35= (this.bracket.scores[34] ? this.bracket.scores[34] : 0);
-    this.slot36= '?'
     this.participant36= (this.bracket.participants[35] ? this.bracket.participants[35] : '');
-    this.score36= (this.bracket.scores[35] ? this.bracket.scores[35] : 0);
-    this.slot37= '?'
     this.participant37= (this.bracket.participants[36] ? this.bracket.participants[36] : '');
-    this.score37= (this.bracket.scores[36] ? this.bracket.scores[36] : 0);
-    this.slot38= '?'
     this.participant38= (this.bracket.participants[37] ? this.bracket.participants[37] : '');
-    this.score38= (this.bracket.scores[37] ? this.bracket.scores[37] : 0);
-    this.slot39= '?'
     this.participant39= (this.bracket.participants[38] ? this.bracket.participants[38] : '');
-    this.score39= (this.bracket.scores[38] ? this.bracket.scores[38] : 0);
-    this.slot40= '?'
     this.participant40= (this.bracket.participants[39] ? this.bracket.participants[39] : '');
-    this.score40= (this.bracket.scores[39] ? this.bracket.scores[39] : 0);
-    this.slot41= '?'
     this.participant41= (this.bracket.participants[40] ? this.bracket.participants[40] : '');
-    this.score41= (this.bracket.scores[40] ? this.bracket.scores[40] : 0);
-    this.slot42= '?'
     this.participant42= (this.bracket.participants[41] ? this.bracket.participants[41] : '');
-    this.score42= (this.bracket.scores[41] ? this.bracket.scores[41] : 0);
-    this.slot43= '?'
     this.participant43= (this.bracket.participants[42] ? this.bracket.participants[42] : '');
-    this.score43= (this.bracket.scores[42] ? this.bracket.scores[42] : 0);
-    this.slot44= '?'
     this.participant44= (this.bracket.participants[43] ? this.bracket.participants[43] : '');
-    this.score44= (this.bracket.scores[43] ? this.bracket.scores[43] : 0);
-    this.slot45= '?'
     this.participant45= (this.bracket.participants[44] ? this.bracket.participants[44] : '');
-    this.score45= (this.bracket.scores[44] ? this.bracket.scores[44] : 0);
-    this.slot46= '?'
     this.participant46= (this.bracket.participants[45] ? this.bracket.participants[45] : '');
-    this.score46= (this.bracket.scores[45] ? this.bracket.scores[45] : 0);
-    this.slot47= '?'
     this.participant47= (this.bracket.participants[46] ? this.bracket.participants[46] : '');
-    this.score47= (this.bracket.scores[46] ? this.bracket.scores[46] : 0);
-    this.slot48= '?'
     this.participant48= (this.bracket.participants[47] ? this.bracket.participants[47] : '');
-    this.score48= (this.bracket.scores[47] ? this.bracket.scores[47] : 0);
-    this.slot49= '?'
-    this.participant49= (this.bracket.participants[48] ? this.bracket.participants[48] : '');
-    this.score49= (this.bracket.scores[48] ? this.bracket.scores[48] : 0);
-    this.slot50= '?'
-    this.participant50= (this.bracket.participants[49] ? this.bracket.participants[49] : '');
-    this.score50= (this.bracket.scores[49] ? this.bracket.scores[49] : 0);
     // Round 3
-    this.slot51= '?'
+    this.participant49= (this.bracket.participants[48] ? this.bracket.participants[48] : '');
+    this.participant50= (this.bracket.participants[49] ? this.bracket.participants[49] : '');
     this.participant51= (this.bracket.participants[50] ? this.bracket.participants[50] : '');
-    this.score51= (this.bracket.scores[50] ? this.bracket.scores[50] : 51);
-    this.slot52= '?'
     this.participant52= (this.bracket.participants[51] ? this.bracket.participants[51] : '');
-    this.score52= (this.bracket.scores[51] ? this.bracket.scores[51] : 0);
-    this.slot53= '?'
     this.participant53= (this.bracket.participants[52] ? this.bracket.participants[52] : '');
-    this.score53= (this.bracket.scores[52] ? this.bracket.scores[52] : 0);
-    this.slot54= '?'
     this.participant54= (this.bracket.participants[53] ? this.bracket.participants[53] : '');
-    this.score54= (this.bracket.scores[53] ? this.bracket.scores[53] : 0);
-    this.slot55= '?'
     this.participant55= (this.bracket.participants[54] ? this.bracket.participants[54] : '');
-    this.score54= (this.bracket.scores[54] ? this.bracket.scores[54] : 0);
-    this.slot56= '?'
     this.participant56= (this.bracket.participants[55] ? this.bracket.participants[55] : '');
-    this.score56= (this.bracket.scores[55] ? this.bracket.scores[55] : 0);
-    this.slot57= '?'
-    this.participant57= (this.bracket.participants[56] ? this.bracket.participants[56] : '');
-    this.score57= (this.bracket.scores[56] ? this.bracket.scores[56] : 0);
-    this.slot58= '?'
-    this.participant58= (this.bracket.participants[57] ? this.bracket.participants[57] : '');
-    this.score58= (this.bracket.scores[57] ? this.bracket.scores[57] : 0);
     //Round 4
-    this.slot59= '?'
+    this.participant57= (this.bracket.participants[56] ? this.bracket.participants[56] : '');
+    this.participant58= (this.bracket.participants[57] ? this.bracket.participants[57] : '');
     this.participant59= (this.bracket.participants[58] ? this.bracket.participants[58] : '');
-    this.score59= (this.bracket.scores[58] ? this.bracket.scores[58] : 0);
-    this.slot60= '?'
     this.participant60= (this.bracket.participants[59] ? this.bracket.participants[59] : '');
-    this.score60= (this.bracket.scores[59] ? this.bracket.scores[59] : 0);
-    this.slot61= '?'
-    this.participant61= (this.bracket.participants[60] ? this.bracket.participants[60] : '');
-    this.score61= (this.bracket.scores[60] ? this.bracket.scores[60] : 0);
-    this.slot62= '?'
-    this.participant62= (this.bracket.participants[61] ? this.bracket.participants[61] : '');
-    this.score62= (this.bracket.scores[61] ? this.bracket.scores[61] : 0);
     //Round 5
-    this.slot63= '?'
-    this.participant63= (this.bracket.participants[62] ? this.bracket.participants[62] : '');
-    this.score63= (this.bracket.scores[62] ? this.bracket.scores[62] : 0);
-    this.slot64= '?'
-    this.participant64= (this.bracket.participants[63] ? this.bracket.participants[63] : '');
-    this.score64= (this.bracket.scores[63] ? this.bracket.scores[63] : 0);
+    this.participant61= (this.bracket.participants[60] ? this.bracket.participants[60] : '');
+    this.participant62= (this.bracket.participants[61] ? this.bracket.participants[61] : '');
     //Champ
-    this.slot65= '?'
-    this.participant65= (this.bracket.participants[64] ? this.bracket.participants[64] : '');
-    this.score65= (this.bracket.scores[64] ? this.bracket.scores[64] : 0);
-    console.log('BRACKET MASTER ', this.bracket.participants);
+    this.participant63= (this.bracket.participants[62] ? this.bracket.participants[62] : '');
     this.setScores();
   }
 
@@ -472,3 +343,4 @@ export class MasterbracketComponent implements OnInit {
     this.storeSubscription.unsubscribe();
   }
 }
+

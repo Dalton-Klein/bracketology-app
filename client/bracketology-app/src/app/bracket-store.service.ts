@@ -21,7 +21,7 @@ export class BracketStoreService {
     .subscribe((bracketData) => {
       this.current$.next(bracketData);
     });
-    console.log('Working?? ', this.current$.value)
+    
   }
 
 

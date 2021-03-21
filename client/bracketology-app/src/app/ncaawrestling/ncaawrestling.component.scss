@@ -1,0 +1,41 @@
+@import '../config';
+
+.master {
+  margin-top: 9vh;
+}
+.title {
+  font-size: calc( 14px + 1.25vw);
+  text-align: center;
+}
+
+.entries-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.entry-card {
+  width: 8vw;
+  height: 4vw;
+  min-width: 85px;
+  min-height: 40px;
+  background-color: $colorPrimary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin: 1vh 1vw;
+  transition: 200ms;
+}
+
+.entry-card:hover {
+  background-color: $colorTertiary;
+  transform: scale(1.05);
+}
+
+.entry-card-text {
+  color: white;
+  font-size: calc(10px + .5vw);
+}
